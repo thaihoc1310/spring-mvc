@@ -20,7 +20,7 @@
                         <div class="col-12 col-md-6 mx-auto">
                             <h1>Update a user</h1>
                             <hr />
-                            <form:form method="post" action="/admin/user/update" modelAttribute="user">
+                            <form:form method="post" action="/admin/user/update" modelAttribute="user-update">
                                 <div class="mb-3" style="display: none;">
                                     <label class="form-label">Id:</label>
                                     <form:input type="Number" class="form-control" path="id" />
