@@ -15,7 +15,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     List<User> findAllByEmail(String email);
 
-    User findOneByEmail(String email);
+    User findOneById(long id);
 
     // thuc te one voi all khong co tac dung , kieu du lieu tra ve moi co tac dung
 }

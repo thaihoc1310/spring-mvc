@@ -23,6 +23,10 @@ public class UserService {
         return this.repository.findAllByEmail(email);
     }
 
+    public User getUserById(long id) {
+        return this.repository.findOneById(id);
+    }
+
     public User handleSaveUser(User user) {
         return this.repository.save(user);
     }
