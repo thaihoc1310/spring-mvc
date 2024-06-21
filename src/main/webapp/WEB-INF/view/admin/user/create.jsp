@@ -20,7 +20,7 @@
                         <div class="col-12 col-md-6 mx-auto">
                             <h1>Create a user</h1>
                             <hr />
-                            <form:form method="post" action="/admin/user/create1" modelAttribute="newUser">
+                            <form:form method="post" action="/admin/user/create" modelAttribute="newUser">
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1" class="form-label">Email:</label>
                                     <form:input type="email" class="form-control" path="email" />

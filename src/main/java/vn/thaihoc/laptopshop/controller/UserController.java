@@ -6,10 +6,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 
 import vn.thaihoc.laptopshop.domain.User;
-import vn.thaihoc.laptopshop.repository.UserRepository;
 import vn.thaihoc.laptopshop.service.UserService;
 
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -32,14 +32,27 @@ public class UserController {
 
     @RequestMapping("/admin/user")
     public String getUserPage(Model model) {
+        List<User> users = this.userService.getAllUsers();
+        model.addAttribute("users1", users);
+        return "/admin/user/table-users";
+    }
+
+    @RequestMapping("/admin/user/{id}")
+    public String getUserDetailPage(Model model, @PathVariable long id) {
         model.addAttribute("newUser", new User());
         return "/admin/user/create";
     }
 
-    @RequestMapping(value = "/admin/user/create1", method = RequestMethod.POST)
+    @RequestMapping("/admin/user/create")
+    public String getCreateUserPage(Model model) {
+        model.addAttribute("newUser", new User());
+        return "/admin/user/create";
+    }
+
+    @RequestMapping(value = "/admin/user/create", method = RequestMethod.POST)
     public String createUserPage(Model model, @ModelAttribute("newUser") User thaihoc) {
         System.out.println("run here" + thaihoc);
         this.userService.handleSaveUser(thaihoc);
-        return "hello";
+        return "redirect:/admin/user";
     }
 }

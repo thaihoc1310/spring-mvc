@@ -11,6 +11,8 @@ import vn.thaihoc.laptopshop.domain.User;
 public interface UserRepository extends JpaRepository<User, Long> {
     User save(User thaihoc);
 
+    List<User> findAll();
+
     List<User> findAllByEmail(String email);
 
     User findOneByEmail(String email);
